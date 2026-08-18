@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "VMS Vendor Portal"
+version = "1.0.0"
+id = "artifacts/vendor-portal"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19328
+
+[services.development]
+run = "pnpm --filter @workspace/vendor-portal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vendor-portal", "run", "build" ]
+publicDir = "artifacts/vendor-portal/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19328"
+BASE_PATH = "/"

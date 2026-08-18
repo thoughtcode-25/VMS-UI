@@ -1,1 +1,1 @@
-# vms_ui
+<p> THIS IS UI/UX REPO FOR VMS(VENDOR PORTAL) </p>
